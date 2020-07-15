@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="algselectionsort.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Algorithms, Selection Sort</title>
+    <style>
+        .boldface {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .boldfaceinfo {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            font-size: large;
+        }
+        
+        .boldfaceemphasis {
+            font-size: x-large;
+        }
+        
+        .imgAni {
+            border: 5px dashed goldenrod;
+            padding: 5px;
+            width: 75%;
+            height: 170px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        
+        .progressEmphasis {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: medium;
+            font-style: italic;
+            font-weight: bold;
+            justify-content: left;
+            text-align: left;
+            width: 75%;
+        }
+        
+        .buttonsize {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10 boldfont">
+                <h1 class="boldface">
+                    Sort ArrayList Instance Using <span class="boldfaceemphasis">Selection Sort</span>
+                </h1>
+                <p>This sorting algorithm relies on swapping <i>assumed minimum</i> values with <i>actual</i> minimum values in an ArrayList, always adding to the end of a sorted list of items. Let's look at a pseudo-code first, and assume we have an ArrayList
+                    instance of n integers, <i>nums</i>.
+
+                </p>
+                <p>
+                    <pre>
+                        for each element, a, in the ArrayList, assume this element is the minimum
+                            for each element, b, in the rest of the ArrayList
+                              compare element b with the assumed minimum
+                              if the element is less than the assumed minimum, 
+                                then set the assumed minimum to be this element
+                        swap a and the minimum
+                        </pre>
+                </p>
+                <p>This sort is ascending, the same principles apply to descending sort, but we look for maximum values instead of minimum values. </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+                <img id="array" class="imgAni" src="images/alselsort0.png" alt="selection sort" />
+                <div class="progressEmphasis">
+                    <p id="progress"></p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#selsortarraycode" aria-expanded="Link to class header">
+                            Code >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#selsortarrayefficiency" aria-expanded="Link to class header">
+                            Efficiency >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#selsortarrayobjects" aria-expanded="Link to class header">
+                            E Object >>
+                        </button>
+                    </div>
+
+                </section>
+
+
+
+            </div>
+            <div class="col-md-7">
+                <div id="selsortarraycode" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">Sample Code, Assuming ArrayList Of Integers - nums</h4>
+                    <pre>
+
+    for (int index = 0; index < nums.size(); index++) { 
+        int min_idx = index; 
+        // Inner loop of selection sort runs once, to n-1
+        for (int j = index+1; j < nums.size(); j++) 
+            if ((nums.get(j).compareTo(nums.get(min_idx)) < 0)) 
+                min_idx = j; 
+                
+        // Swap found minimum element with first element
+        int temp = nums.get(min_idx); 
+        nums.set(min_idx, nums.get(index)); 
+        nums.set(index, temp);                 
+        }
+
+                </pre>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#compareto" aria-expanded="Link to class header">
+                    What does compareTo do? >>
+                </button>
+                        <div id="compareto" class="collapse mb-3">
+                            <pre>                
+** public int compareTo(Integer anotherInt)
+Parameter : anotherInt, the Integer to be compared.
+Return :
+- This method returns the value 0 if this Integer is equal to the argument Integer 
+- a value less than 0 if this Integer is numerically less than the argument Integer 
+- a value greater than 0 if this Integer is numerically greater than the argument Integer
+
+You can implement method compareTo, in your own classes, so that ArrayList 
+instances containing instances of these classes can use algorithms like this one, and 
+compare objects based on your criteria.
+                    </pre>
+                        </div>
+                    </div>
+
+
+                    <div id="selsortarrayefficiency" class="collapse mb-3">
+                        <br>
+                        <h4 class="boldface">How Efficient Is Selection Sort?</h4>
+                        <div id="selectsortefficiency">
+                            <p>If there are n items in the array, we compare n elements, with n elements. We have n<sup>2</sup> comparisons.
+                                <p>We say <i>of the order of</i>, designated by <i>O(...)</i>, to describe the worst case. This is termed big O representation. For selection sort, even if the array is sorted we still have n<sup>2</sup> comparisons. The best
+                                    case is described using big Omega notation, &Omega;(...), as &Omega;(n<sup>2</sup>) comparisons.</p>
+                                <p>Selection Sort has the same worst case as best case! &Omega;(n<sup>2</sup>) and O(n<sup>2</sup>)</p>
+                        </div>
+                    </div>
+
+
+                    <div id="selsortarrayobjects" class="collapse mb-3">
+                        <br>
+                        <h4 class="boldface">How About Sorting Objects?</h4>
+                        <p>The same algorithm applies to arrays containing objects. Instead of comparing primitive values, you would access object attributes and compare.
+                        </p>
+                    </div>
+
+                    <div>
+                        <br>
+                        <h4 class="boldfaceinfo">
+                            <ul>
+                                <li>Can you create the code corresponding to this algorithm? </li>
+                                <li>How efficient do you think the algorithm is?</li>
+                                <li> Can you use the same algorithm with objects?</li>
+                            </ul>
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

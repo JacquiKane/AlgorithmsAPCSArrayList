@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="algbinsearch.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Algorithms, Binary Search</title>
+    <style>
+        .boldface {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .boldfaceinfo {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            font-size: large;
+        }
+        
+        .boldfaceemphasis {
+            font-size: x-large;
+        }
+        
+        .imgAni {
+            border: 5px dashed goldenrod;
+            padding: 5px;
+            width: 75%;
+            height: 170px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        
+        .progressEmphasis {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: medium;
+            font-style: italic;
+            font-weight: bold;
+            justify-content: left;
+            text-align: left;
+            width: 75%;
+        }
+        
+        .buttonsize {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10 boldfont">
+                <h1 class="boldface">
+                    Find Value In Sorted ArrayList, with <span class="boldfaceemphasis">Binary Search</span>
+                </h1>
+                <p>ArrayList must be sorted! Let's use an example. Below, the list is called nums. We scan the list, looking for a value of 19. The algorithm works by using a low value, and a high value - which are averaged, giving an index value at which
+                    the element is compared to the target value.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+                <img id="array" class="imgAni" src="images/binsearchal0.png" alt="Binary Search" />
+
+                <div class="progressEmphasis">
+                    <p id="progress"></p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#binarysearchcode" aria-expanded="Link to class header">
+                            Code >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#binarysearchefficiency" aria-expanded="Link to class header">
+                            Efficiency >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#binarysearchobjects" aria-expanded="Link to class header">
+                            E Object >>
+                        </button>
+                    </div>
+
+                </section>
+
+
+            </div>
+            <div class="col-md-7">
+                <br>
+                <div id="binarysearchcode" class="collapse mb-3">
+                    <h4 class="boldface">Sample Code, Assuming ArrayList Of Integers - nums</h4>
+                    <pre>
+        ArrayList&lt;Integer&gt; nums = new ArrayList&lt;Integer&gt;();
+        // Add elements, sort to produce sorted ArrayList
+        // ....
+        int low = 0;
+        int high = nums.size() - 1;
+        int mid;
+        while (low <= high) {
+            mid = ( low + high ) / 2;
+            if (search.compareTo(nums.get(mid)) == 0) {
+                System.out.println("gotcha");
+                System.out.println("Item found at " + mid);
+            } else if (search.compareTo(nums.get(mid)) < 0) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+            System.out.println("Item not found!");                       
+                </pre>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#compareto" aria-expanded="Link to class header">
+                    What does compareTo do? >>
+                </button>
+                        <div id="compareto" class="collapse mb-3">
+                            <pre>                
+** public int compareTo(Integer anotherInt)
+Parameter : anotherInt, the Integer to be compared.
+Return :
+- This method returns the value 0 if this Integer is equal to the argument Integer 
+- a value less than 0 if this Integer is numerically less than the argument Integer 
+- a value greater than 0 if this Integer is numerically greater than the argument Integer
+
+You can implement method compareTo, in your own classes, so that ArrayList 
+instances containing instances of these classes can use algorithms like this one, and 
+compare objects based on your criteria.
+                    </pre>
+                        </div>
+                    </div>
+
+
+
+                    <div id="binarysearchefficiency" class="collapse mb-3">
+                        <br>
+                        <h4 class="boldface">How Efficient Is Binary Search?</h4>
+                        <div id="efficiency">
+                            <p>We say <i>of the order of</i>, designated by <i>O(...)</b>, to describe the worst case in
+                                terms of comparisons. This is termed big O representation.
+
+                                The best case is described using big Omega notation, &Omega;(...).</p>
+                        <p>The array has to be sorted before binary search can be used. This may take away from any
+                            efficiency gains!
+                            In the best case, the item is found right away, after a single split. In this case,
+                            the best case scenario is described as
+                            big Omega of 1, &Omega;(1). In the worst case, we have to keep splitting the list, and end
+                            up with approximately log n comparisons.
+                            This is designated using big O notation, as O(log n).
+                        </p>
+
+                    </div>
+                </div>
+
+                <div id="binarysearchobjects" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">How About Sorting Objects?</h4>
+                    <p>The same algorithm applies to ArrayLists containing other objects. If you have a sorted ArrayList of
+                        SoccerPlayer objects (sorted based on a specific attribute)
+                        and you need to find a specific player, then you would access the SoccerPlayer object's
+                        attribute, and compare with the target
+                        value.
+                    </p>
+                </div>
+
+                <div>
+                    <br>
+                    <h4 class="boldfaceinfo">
+                        <ul>
+                            <li>Can you create the code corresponding to this algorithm? </li>
+                            <li>How efficient do you think the algorithm is?</li>
+                            <li> Can you use the same algorithm with objects?</li>
+                        </ul>
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="alginsertsort.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Algorithms, Insert Sort</title>
+    <style>
+        .boldface {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .boldfaceinfo {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            font-size: large;
+        }
+        
+        .boldfaceemphasis {
+            font-size: x-large;
+        }
+        
+        .imgAni {
+            border: 5px dashed goldenrod;
+            padding: 5px;
+            width: 75%;
+            height: 170px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        
+        .progressEmphasis {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: medium;
+            font-style: italic;
+            font-weight: bold;
+            justify-content: left;
+            text-align: left;
+            width: 75%;
+        }
+        
+        .buttonsize {
+            width: 90%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10 boldfont">
+                <h1 class="boldface">
+                    Sort ArrayList Using <span class="boldfaceemphasis">Insertion Sort</span>
+                </h1>
+                <p>Iterate through the ArrayList, inserting each element in the correct order.
+                </p>
+                <p>Let's use an example. Below, the ArrayList is called nums. The ArrayList elements are shifted as insertions occur, following the insert sort algorithm.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+                <img id="array" class="imgAni" src="images/arrinsertsort0.png" alt="Insert Sort" />
+                <div class="progressEmphasis">
+                    <p id="progress"></p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-2">
+
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#insertsortcode" aria-expanded="Link to class header">
+                            Java Code >>
+                        </button>
+                    </div>
+
+                </section>
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#insertsortefficiency" aria-expanded="Link to class header">
+                            Efficiency >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#insertsortobjects" aria-expanded="Link to class header">
+                            E Object >>
+                        </button>
+                    </div>
+
+                </section>
+            </div>
+            <div class="col-md-7">
+                <br>
+                <div id="insertsortcode" class="collapse mb-3">
+                    <h4 class="boldface">Sample Code, Assuming Array Of Ints - nums</h4>
+                    <pre>
+            ArrayList&lt;Integer&gt; nums = new ArrayList&lt;Integer&gt;();
+            // Add elements to the ArrayList
+            // ....
+            for (int index = 1; index < nums.size(); index++) { 
+                Integer currentElement = nums.get(index);
+                     int j = index - 1; 
+                       
+                     while (j >= 0 && ((nums.get(j).compareTo(currentElement)) > 0)){ 
+                         nums.set(j + 1, nums.get(j)); 
+                         j = j - 1; 
+                         } 
+                         nums.set(j+1, currentElement);
+                     } 
+                     
+
+                </pre>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#compareto" aria-expanded="Link to class header">
+                        What does compareTo do? >>
+                    </button>
+                        <div id="compareto" class="collapse mb-3">
+                            <pre>                
+** public int compareTo(Integer anotherInt)
+Parameter : anotherInt, the Integer to be compared.
+Return :
+- This method returns the value 0 if this Integer is equal to the argument Integer 
+- a value less than 0 if this Integer is numerically less than the argument Integer 
+- a value greater than 0 if this Integer is numerically greater than the argument Integer
+
+You can implement method compareTo, in your own classes, so that ArrayList 
+instances containing instances of these classes can use algorithms like this one, and 
+compare objects based on your criteria.
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="insertsortefficiency" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">How Efficient Is Insert Sort?</h4>
+                    <div id="efficiency">
+                        <p>If there are n items in the array, then the best case scenario is when the array is already sorted - in this case we compare n elements but do not have to shift them. The worst case scenario is when the array is sorted in reverse
+                            order. Given this situation, we have n<sup>2</sup> comparisons.
+                            <p>We say <i>of the order of</i>, designated by <i>O(...)</b>, to describe the worst case</b>.
+                                This is termed big O representation.
+                                For insert sort, the worst case is O(n<sup>2</sup>) comparisons.</p>
+                        <p> The best case is an array that is sorted. This is described using big Omega notation,
+                            &Omega;(...), as &Omega;(n) comparisons.</p>
+                    </div>
+                </div>
+
+                <div id="insertsortobjects" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">How About Sorting Objects?</h4>
+                    <p>The same algorithm applies to arrays containing objects. If you have an array of SoccerPlayer
+                        objects, then you would access the SoccerPlayer object's attribute, and compare accordingly.
+                    </p>
+                </div>
+
+                <div>
+                    <br>
+                    <h4 class="boldfaceinfo"><ul>
+                        <li>Can you create the code corresponding to this algorithm? </li>
+                        <li>How efficient do you think the algorithm is?</li>
+                        <li> Can you use the same algorithm with objects?</li>
+                    </ul></h4>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
