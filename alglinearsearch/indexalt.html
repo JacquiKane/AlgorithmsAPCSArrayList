@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="alglinsearch.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Algorithms, Linear Search</title>
+    <style>
+        .boldface{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .boldfaceinfo {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            font-size: large;
+        }
+        
+        .boldfaceemphasis {
+            font-size: x-large;
+        }
+        
+        .imgAni {
+            border: 5px dashed goldenrod;
+            padding: 5px;
+            width: 75%;
+            height: 170px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        
+        .progressEmphasis {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: medium;
+            font-style: italic;
+            font-weight: bold;
+            justify-content: left;
+            text-align: left;
+            width: 75%;
+        }
+        
+        .buttonsize {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10 boldfont">
+                <h1 class="boldface">
+                    <span class="boldfaceemphasis">Linear Search</span> - Find A Value In An ArrayList
+                </h1>
+                <p>Iterate through the ArrayList until the element is found.
+                </p>
+                <p>Let's use an example. Below, the ArrayList is called nums. We are scanning the array, looking for a value of 27.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+                <img id="array" class="imgAni" src="images/linsearchal0.png" alt="Linear Search" />
+                <div class="progressEmphasis">
+                    <p id="progress"></p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#linearsearchcode" aria-expanded="Link to class header">
+                            Code >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#linearsearchefficiency" aria-expanded="Link to class header">
+                            Efficiency >>
+                        </button>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div>
+                        <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#linearsearchobjects" aria-expanded="Link to class header">
+                            E Object >>
+                        </button>
+                    </div>
+
+                </section>
+
+            </div>
+            <div class="col-md-7">
+                <div id="linearsearchcode" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">Find Target - Assume ArrayList Of Integers, nums</h4>
+                    <pre>
+        ArrayList&lt;Integer&gt; nums = new ArrayList&lt;Integer&gt;();
+        // Add elements to the ArrayList, nums
+        // ....
+        int target = 27;                        
+        for (int index = 0; index < nums.size(); index++)
+            if (nums.get(index).equals(target))
+                System.out.println("Target found, index " + i);
+                        
+                </pre>
+                </div>
+
+                <div id="linearsearchefficiency" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">How Efficient Is Linear Search?</h4>
+                    <p>We say <i>of the order of</i>, designated by <i>O(...)</i>, to describe the worst case in terms of comparisons. This is termed big O representation. The best case is described using big Omega notation, &Omega;(...).</p>
+                    <p>The item might be found right away, if it is the first element in the ArrayList instance. In this case, the best case scenario is described as big Omega of 1, &Omega;(1). In the worst case, we have to compare each element in the ArrayList,
+                        n comparisons. This is designated using big O notation, as O(n).
+                    </p>
+
+                </div>
+
+                <div id="linearsearchobjects" class="collapse mb-3">
+                    <br>
+                    <h4 class="boldface">How About Looking For Specific Objects?</h4>
+                    <p>The same algorithm applies to ArrayLists containing other objects. If you have an ArrayList instance of SoccerPlayer objects and you need to find a specific player, then you would access the SoccerPlayer object's attribute, and compare
+                        with the target value.
+                    </p>
+                </div>
+
+
+                <div>
+                    <br>
+                    <h4 class="boldfaceinfo">
+                        <ul>
+                            <li>Can you create the code corresponding to this algorithm? </li>
+                            <li>How efficient do you think the algorithm is?</li>
+                            <li> Can you use the same algorithm with other objects?</li>
+                        </ul>
+                    </h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
