@@ -125,7 +125,6 @@
                     <pre>
         ArrayList&lt;Integer&gt; nums = new ArrayList&lt;Integer&gt;();
         // Add elements, sort to produce sorted ArrayList
-        // Assume search is the target item
         // ....
         int low = 0;
         int high = nums.size() - 1;
@@ -164,48 +163,52 @@ compare objects based on your criteria.
 
 
 
-                    <div id="binarysearchefficiency" class="collapse mb-3">
+
+                    <div>
                         <br>
-                        <h4 class="boldface">How Efficient Is Binary Search?</h4>
-                        <div id="efficiency">
-                            <p>We say <i>of the order of</i>, designated by <i>O(...)</b>, to describe the worst case in
-                                terms of comparisons. This is termed big O representation.
-
-                                The best case is described using big Omega notation, &Omega;(...).</p>
-                        <p>The array has to be sorted before binary search can be used. This may take away from any
-                            efficiency gains!
-                            In the best case, the item is found right away, after a single split. In this case,
-                            the best case scenario is described as
-                            big Omega of 1, &Omega;(1). In the worst case, we have to keep splitting the list, and end
-                            up with approximately log n comparisons.
-                            This is designated using big O notation, as O(log n).
-                        </p>
-
+                        <h4 class="boldfaceinfo">
+                            <ul>
+                                <li>Can you create the code corresponding to this algorithm? </li>
+                                <li>How efficient do you think the algorithm is?</li>
+                                <li> Can you use the same algorithm with objects?</li>
+                            </ul>
+                        </h4>
                     </div>
                 </div>
 
-                <div id="binarysearchobjects" class="collapse mb-3">
+                <div id="binarysearchefficiency" class="collapse mb-3">
                     <br>
-                    <h4 class="boldface">How About Sorting Objects?</h4>
-                    <p>The same algorithm applies to ArrayLists containing other objects. If you have a sorted ArrayList of
-                        SoccerPlayer objects (sorted based on a specific attribute)
-                        and you need to find a specific player, then you would access the SoccerPlayer object's
-                        attribute, and compare with the target
-                        value.
-                    </p>
-                </div>
+                    <h4 class="boldface">How Efficient Is Binary Search?</h4>
+                    <div id="efficiency">
+                        <p>We say <i>of the order of</i>, designated by <i>O(...)</b>, to describe the worst case in
+                        terms of comparisons. This is termed big O representation.
 
-                <div>
-                    <br>
-                    <h4 class="boldfaceinfo">
-                        <ul>
-                            <li>Can you create the code corresponding to this algorithm? </li>
-                            <li>How efficient do you think the algorithm is?</li>
-                            <li> Can you use the same algorithm with objects?</li>
-                        </ul>
-                    </h4>
-                </div>
+                        The best case is described using big Omega notation, &Omega;(...).</p>
+                <p>The array has to be sorted before binary search can be used. This may take away from any
+                    efficiency gains!
+                    In the best case, the item is found right away, after a single split. In this case,
+                    the best case scenario is described as
+                    big Omega of 1, &Omega;(1). In the worst case, we have to keep splitting the list, and end
+                    up with approximately log n comparisons.
+                    This is designated using big O notation, as O(log n).
+                </p>
+
             </div>
+        </div>
+
+        <div id="binarysearchobjects" class="collapse mb-3">
+            <br>
+            <h4 class="boldface">How About Sorting Objects?</h4>
+            <p>The same algorithm applies to ArrayLists containing other objects. If you have a sorted ArrayList of
+                SoccerPlayer objects (sorted based on a specific attribute)
+                and you need to find a specific player, then you would access the SoccerPlayer object's
+                attribute, and compare with the target
+                value.
+            </p>
+        </div>
+
+
+
         </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
