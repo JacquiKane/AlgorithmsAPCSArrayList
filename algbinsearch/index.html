@@ -129,17 +129,19 @@
         int low = 0;
         int high = nums.size() - 1;
         int mid;
-        while (low <= high) {
+        boolean found;
+        while (low <= high && !found) {
             mid = ( low + high ) / 2;
             if (search.compareTo(nums.get(mid)) == 0) {
-                System.out.println("gotcha");
+                found = true;
                 System.out.println("Item found at " + mid);
             } else if (search.compareTo(nums.get(mid)) < 0) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
             }
-            System.out.println("Item not found!");                       
+           if (!found)            
+            System.out.println("Not found");                      
                 </pre>
                     <div>
                         <button class=" btn btn-primary mb-3 buttonsize" data-toggle="collapse" data-target="#compareto" aria-expanded="Link to class header">
